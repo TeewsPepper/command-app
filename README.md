@@ -1,6 +1,6 @@
 # 💻 Comandos Rápidos - Terminal Retro
 
-![Demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDk0dGJ5Y3VjZ2V1ZzN6emZjbHd4eGx6N2RycW5qYzRybjBicGZ0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKTDaPYh5Kzs6y4/giphy.gif)
+![Demo](https://command-app.netlify.app)
 
 Terminal interactiva con estilo arcade para acceder rápidamente a comandos de desarrollo esenciales.
 
@@ -17,10 +17,11 @@ Terminal interactiva con estilo arcade para acceder rápidamente a comandos de d
 
 [![Tech Stack](https://skillicons.dev/icons?i=react,ts,vite,css,github,vercel&theme=dark)](https://skillicons.dev)
 
-- **Frontend**: React 18 + TypeScript
-- **Bundler**: Vite (configuración optimizada)
-- **Estilos**: CSS Modules + Framer Motion (animaciones)
-- **CI/CD**: GitHub Actions (despliegues automáticos)
+- **React 18** - Componentes funcionales con Hooks
+- **TypeScript** - Tipado estático
+- **Vite** - Bundler ultrarrápido
+- **CSS Modules** - Estilos encapsulados
+- **Framer Motion** - Animaciones
 
 ## 🚀 Instalación Rápida
 
