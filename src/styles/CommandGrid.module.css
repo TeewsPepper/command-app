@@ -1,0 +1,95 @@
+
+.container {
+  font-family: 'Press Start 2P' monospace;
+  background-color: #000;
+  color: #0f0;
+  padding: 20px;
+  border: 4px solid #ff00ff;
+  box-shadow: 0 0 10px #00ffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #ff0;
+  text-shadow: 0 0 5px #f0f, 0 0 10px #0ff;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 5px #f0f, 0 0 10px #0ff;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+.searchContainer {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.searchInput {
+  width: 90%;
+  padding: 10px;
+  background: black;
+  color: #0f0;
+  border: 2px solid #00ffff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 10px #ff00ff;
+}
+
+.tabsContainer {
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.tabsScroll {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.tabButton {
+  padding: 8px 16px;
+  background: #000;
+  color: #0f0;
+  border: 2px solid #ff00ff;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tabButton:hover {
+  background: #ff00ff;
+  color: #000;
+}
+
+.activeTab {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.commandsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.noResults {
+  text-align: center;
+  color: #f00;
+  font-size: 1rem;
+  text-shadow: 0 0 5px #ff0;
+}

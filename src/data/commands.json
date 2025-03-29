@@ -1,0 +1,990 @@
+
+[
+    
+    {
+      "id": "git-init",
+      "command": "git init",
+      "description": "Inicializa un nuevo repositorio Git en el directorio actual",
+      "category": "git",
+      "tags": ["básico", "repositorio"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-clone",
+      "command": "git clone <url_repositorio>",
+      "description": "Clona un repositorio remoto a tu máquina local",
+      "category": "git",
+      "tags": ["básico", "colaboración"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-status",
+      "command": "git status",
+      "description": "Muestra el estado del directorio de trabajo y del área de staging",
+      "category": "git",
+      "tags": ["básico", "seguimiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-add",
+      "command": "git add <archivo>",
+      "description": "Añade cambios al área de staging",
+      "category": "git",
+      "tags": ["básico", "staging"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-commit",
+      "command": "git commit -m \"mensaje descriptivo\"",
+      "description": "Confirma los cambios con un mensaje descriptivo",
+      "category": "git",
+      "tags": ["básico", "historial"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-push",
+      "command": "git push origin <rama>",
+      "description": "Envía los commits locales al repositorio remoto",
+      "category": "git",
+      "tags": ["básico", "colaboración"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-pull",
+      "command": "git pull origin <rama>",
+      "description": "Obtiene cambios del repositorio remoto y los fusiona",
+      "category": "git",
+      "tags": ["básico", "colaboración"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-branch",
+      "command": "git branch <nombre_rama>",
+      "description": "Crea una nueva rama",
+      "category": "git",
+      "tags": ["ramas", "organización"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-checkout",
+      "command": "git checkout <rama>",
+      "description": "Cambia a otra rama existente",
+      "category": "git",
+      "tags": ["ramas", "navegación"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "git-merge",
+      "command": "git merge <rama>",
+      "description": "Fusiona los cambios de otra rama con la rama actual",
+      "category": "git",
+      "tags": ["ramas", "fusión"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "git-reset",
+      "command": "git reset --hard HEAD",
+      "description": "Desecha todos los cambios locales, volviendo al último commit",
+      "category": "git",
+      "tags": ["avanzado", "recuperación"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "git-log",
+      "command": "git log --oneline --graph --all",
+      "description": "Muestra el historial de commits en formato compacto con gráfico",
+      "category": "git",
+      "tags": ["historial", "visualización"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "git-stash",
+      "command": "git stash",
+      "description": "Guarda temporalmente cambios sin commit",
+      "category": "git",
+      "tags": ["avanzado", "temporal"],
+      "difficulty": "medium"
+    },
+  
+    
+    {
+      "id": "npm-init",
+      "command": "npm init -y",
+      "description": "Crea un nuevo package.json con valores por defecto",
+      "category": "node",
+      "tags": ["básico", "inicialización"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-install",
+      "command": "npm install <paquete>",
+      "description": "Instala un paquete y lo añade a dependencies",
+      "category": "node",
+      "tags": ["básico", "dependencias"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-install-dev",
+      "command": "npm install -D <paquete>",
+      "description": "Instala un paquete como devDependency",
+      "category": "node",
+      "tags": ["desarrollo", "dependencias"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-run",
+      "command": "npm run <script>",
+      "description": "Ejecuta un script definido en package.json",
+      "category": "node",
+      "tags": ["básico", "scripts"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-audit",
+      "command": "npm audit",
+      "description": "Busca vulnerabilidades en las dependencias",
+      "category": "node",
+      "tags": ["seguridad", "auditoría"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "nvm-use",
+      "command": "nvm use <versión>",
+      "description": "Cambia la versión de Node.js usando NVM",
+      "category": "node",
+      "tags": ["versiones", "entorno"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "npm-global-install",
+      "command": "npm install -g <paquete>",
+      "description": "Instala un paquete globalmente",
+      "category": "node",
+      "tags": ["global", "herramientas"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-list",
+      "command": "npm list",
+      "description": "Muestra el árbol de dependencias instaladas",
+      "category": "node",
+      "tags": ["dependencias", "información"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-outdated",
+      "command": "npm outdated",
+      "description": "Verifica paquetes desactualizados",
+      "category": "node",
+      "tags": ["dependencias", "actualización"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "npm-update",
+      "command": "npm update",
+      "description": "Actualiza los paquetes a sus últimas versiones permitidas",
+      "category": "node",
+      "tags": ["actualización", "dependencias"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "npm-uninstall",
+      "command": "npm uninstall <paquete>",
+      "description": "Desinstala un paquete",
+      "category": "node",
+      "tags": ["dependencias", "limpieza"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-ci",
+      "command": "npm ci",
+      "description": "Instala dependencias exactas como en package-lock.json (para CI/CD)",
+      "category": "node",
+      "tags": ["producción", "construcción"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "npm-exec",
+      "command": "npx <paquete>",
+      "description": "Ejecuta un paquete sin instalarlo permanentemente",
+      "category": "node",
+      "tags": ["herramientas", "temporal"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "npm-version",
+      "command": "npm version <major|minor|patch>",
+      "description": "Actualiza la versión del proyecto siguiendo semver",
+      "category": "node",
+      "tags": ["versión", "publicación"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "npm-publish",
+      "command": "npm publish",
+      "description": "Publica un paquete en el registro de npm",
+      "category": "node",
+      "tags": ["publicación", "paquete"],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "npm-docs",
+      "command": "npm docs <paquete>",
+      "description": "Abre la documentación de un paquete en el navegador",
+      "category": "node",
+      "tags": ["documentación", "ayuda"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-repo",
+      "command": "npm repo <paquete>",
+      "description": "Abre el repositorio de un paquete en el navegador",
+      "category": "node",
+      "tags": ["repositorio", "github"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-cache-clean",
+      "command": "npm cache clean --force",
+      "description": "Limpia la caché de npm",
+      "category": "node",
+      "tags": ["mantenimiento", "limpieza"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "node-version",
+      "command": "node -v",
+      "description": "Muestra la versión actual de Node.js",
+      "category": "node",
+      "tags": ["información", "versión"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "npm-run-dev",
+      "command": "npm run dev",
+      "description": "Ejecuta el script 'dev' comúnmente usado para entornos de desarrollo",
+      "category": "node",
+      "tags": ["desarrollo", "scripts"],
+      "difficulty": "easy"
+    },
+  
+    {
+      "id": "docker-ps",
+      "command": "docker ps -a",
+      "description": "Lista todos los contenedores (en ejecución y detenidos)",
+      "category": "docker",
+      "tags": ["monitoreo", "contenedores"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "docker-run",
+      "command": "docker run -p 8080:80 <nombre-imagen>",
+      "description": "Ejecuta contenedor mapeando puerto 8080 host a 80 contenedor",
+      "category": "docker",
+      "tags": ["ejecución", "puertos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "docker-exec",
+      "command": "docker exec -it <nombre-contenedor bash>",
+      "description": "Accede a shell interactivo dentro de contenedor en ejecución",
+      "category": "docker",
+      "tags": ["debugging", "shell"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "docker-logs",
+      "command": "docker logs -f <nombre-contenedor>",
+      "description": "Muestra y sigue logs de contenedor (como tail -f)",
+      "category": "docker",
+      "tags": ["logs", "monitoreo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "docker-stop",
+      "command": "docker stop <nombre-contenedor>",
+      "description": "Detiene contenedor en ejecución graciosamente",
+      "category": "docker",
+      "tags": ["gestión", "contenedores"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "docker-rm",
+      "command": "docker rm -f <nombre-contenedor>",
+      "description": "Elimina contenedor (fuerza eliminación si está en ejecución)",
+      "category": "docker",
+      "tags": ["limpieza", "gestión"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "docker-rmi",
+      "command": "docker rmi <nombre-imagen>",
+      "description": "Elimina imagen local no utilizada",
+      "category": "docker",
+      "tags": ["limpieza", "imágenes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "docker-network",
+      "command": "docker network ls",
+      "description": "Lista todas las redes Docker disponibles",
+      "category": "docker",
+      "tags": ["redes", "conexión"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "docker-volume",
+      "command": "docker volume create <nombre-volumen>",
+      "description": "Crea volumen persistente para datos",
+      "category": "docker",
+      "tags": ["almacenamiento", "persistencia"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "docker-prune",
+      "command": "docker system prune -a --volumes",
+      "description": "Limpia TODO (contenedores, imágenes, redes, volúmenes no usados)",
+      "category": "docker",
+      "tags": ["limpieza", "mantenimiento"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "docker-stats",
+      "command": "docker stats",
+      "description": "Muestra estadísticas en vivo de contenedores (CPU, memoria)",
+      "category": "docker",
+      "tags": ["monitoreo", "rendimiento"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "docker-inspect",
+      "command": "docker inspect <nombre-contenedor>",
+      "description": "Muestra metadatos detallados de contenedor/imagen",
+      "category": "docker",
+      "tags": ["debugging", "información"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "docker-compose-down",
+      "command": "docker-compose down --volumes",
+      "description": "Detiene y elimina contenedores, redes y volúmenes de compose",
+      "category": "docker",
+      "tags": ["orquestación", "limpieza"],
+      "difficulty": "medium"
+    },
+  
+    
+    {
+      "id": "vscode-open-command",
+      "command": "Ctrl+Shift+P (Cmd+Shift+P en Mac)",
+      "description": "Abre la paleta de comandos",
+      "category": "vscode",
+      "tags": ["básico", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-format",
+      "command": "Shift+Alt+F (Shift+Option+F en Mac)",
+      "description": "Formatea el documento actual",
+      "category": "vscode",
+      "tags": ["formato", "productividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-terminal",
+      "command": "Ctrl+` (Cmd+` en Mac)",
+      "description": "Abre/cierra el terminal integrado",
+      "category": "vscode",
+      "tags": ["terminal", "productividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-quick-open",
+      "command": "Ctrl+P (Cmd+P en Mac)",
+      "description": "Busca y abre rápidamente archivos",
+      "category": "vscode",
+      "tags": ["navegación", "productividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-line-navigation",
+      "command": "Ctrl+G (Cmd+G en Mac)",
+      "description": "Ir a una línea específica",
+      "category": "vscode",
+      "tags": ["navegación", "atajo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-multicursor",
+      "command": "Ctrl+Alt+↑/↓ (Cmd+Option+↑/↓ en Mac)",
+      "description": "Agrega múltiples cursores",
+      "category": "vscode",
+      "tags": ["edición", "productividad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "vscode-comment",
+      "command": "Ctrl+/ (Cmd+/ en Mac)",
+      "description": "Comenta/descomenta línea seleccionada",
+      "category": "vscode",
+      "tags": ["edición", "rápido"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-rename",
+      "command": "F2 (F2 en Mac)",
+      "description": "Renombra variables/funciones",
+      "category": "vscode",
+      "tags": ["refactor", "código"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-quick-fix",
+      "command": "Ctrl+. (Cmd+. en Mac)",
+      "description": "Muestra acciones rápidas (Quick Fix)",
+      "category": "vscode",
+      "tags": ["productividad", "error"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "vscode-fold",
+      "command": "Ctrl+Shift+[ (Cmd+Option+[ en Mac)",
+      "description": "Pliega/despliega sección de código",
+      "category": "vscode",
+      "tags": ["navegación", "organizar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "vscode-duplicate",
+      "command": "Shift+Alt+↓ (Shift+Option+↓ en Mac)",
+      "description": "Duplica línea o selección",
+      "category": "vscode",
+      "tags": ["edición", "productividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-close-tab",
+      "command": "Ctrl+W (Cmd+W en Mac)",
+      "description": "Cierra la pestaña actual",
+      "category": "vscode",
+      "tags": ["navegación", "editor"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "vscode-symbol-nav",
+      "command": "Ctrl+Shift+O (Cmd+Shift+O en Mac)",
+      "description": "Navegación por símbolos del archivo",
+      "category": "vscode",
+      "tags": ["navegación", "código"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "vscode-emmet",
+      "command": "Tab (tras escribir abreviación Emmet)",
+      "description": "Expandir abreviación Emmet",
+      "category": "vscode",
+      "tags": ["html", "productividad"],
+      "difficulty": "advanced"
+    },
+    {
+      "id": "vscode-split-editor",
+      "command": "Ctrl+\\ (Cmd+\\ en Mac)",
+      "description": "Divide el editor en dos paneles",
+      "category": "vscode",
+      "tags": ["productividad", "multivista"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "vscode-move-line",
+      "command": "Alt+↑/↓ (Option+↑/↓ en Mac)",
+      "description": "Mueve la línea seleccionada arriba/abajo",
+      "category": "vscode",
+      "tags": ["edición", "organizar"],
+      "difficulty": "easy"
+    },
+  
+    
+    {
+      "id": "bash-ls",
+      "command": "ls",
+      "description": "Lista los archivos y directorios en el directorio actual",
+      "category": "bash",
+      "tags": ["básico", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-cd",
+      "command": "cd <directorio>",
+      "description": "Cambia el directorio de trabajo",
+      "category": "bash",
+      "tags": ["navegación", "básico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-pwd",
+      "command": "pwd",
+      "description": "Muestra la ruta del directorio actual",
+      "category": "bash",
+      "tags": ["información", "básico"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-cp",
+      "command": "cp <origen> <destino>",
+      "description": "Copia archivos o directorios",
+      "category": "bash",
+      "tags": ["archivos", "operaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-mv",
+      "command": "mv <origen> <destino>",
+      "description": "Mueve o renombra archivos y directorios",
+      "category": "bash",
+      "tags": ["archivos", "operaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-rm",
+      "command": "rm <archivo>",
+      "description": "Elimina archivos",
+      "category": "bash",
+      "tags": ["archivos", "peligroso"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-mkdir",
+      "command": "mkdir <directorio>",
+      "description": "Crea un nuevo directorio",
+      "category": "bash",
+      "tags": ["directorios", "operaciones"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-cat",
+      "command": "cat <archivo>",
+      "description": "Muestra el contenido de un archivo",
+      "category": "bash",
+      "tags": ["archivos", "lectura"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-grep",
+      "command": "grep <patrón> <archivo>",
+      "description": "Busca patrones en archivos",
+      "category": "bash",
+      "tags": ["búsqueda", "texto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-chmod",
+      "command": "chmod <permisos> <archivo>",
+      "description": "Cambia los permisos de archivos/directorios",
+      "category": "bash",
+      "tags": ["permisos", "seguridad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-chown",
+      "command": "chown <usuario>:<grupo> <archivo>",
+      "description": "Cambia el propietario de archivos/directorios",
+      "category": "bash",
+      "tags": ["permisos", "administración"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-ps",
+      "command": "ps aux",
+      "description": "Lista los procesos en ejecución",
+      "category": "bash",
+      "tags": ["procesos", "monitoreo"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-kill",
+      "command": "kill <PID>",
+      "description": "Termina un proceso por su ID",
+      "category": "bash",
+      "tags": ["procesos", "administración"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-top",
+      "command": "top",
+      "description": "Muestra procesos activos y uso de recursos",
+      "category": "bash",
+      "tags": ["monitoreo", "sistema"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-find",
+      "command": "find <directorio> -name <patrón>",
+      "description": "Busca archivos en el sistema",
+      "category": "bash",
+      "tags": ["búsqueda", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-tar",
+      "command": "tar -czvf <archivo.tar.gz> <directorio>",
+      "description": "Comprime directorios en un archivo tar.gz",
+      "category": "bash",
+      "tags": ["compresión", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-ssh",
+      "command": "ssh <usuario>@<host>",
+      "description": "Conecta a un servidor remoto via SSH",
+      "category": "bash",
+      "tags": ["red", "remoto"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-scp",
+      "command": "scp <origen> <destino>",
+      "description": "Copia archivos entre sistemas (SSH)",
+      "category": "bash",
+      "tags": ["red", "archivos"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-history",
+      "command": "history",
+      "description": "Muestra el historial de comandos ejecutados",
+      "category": "bash",
+      "tags": ["historial", "productividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-alias",
+      "command": "alias <nombre>='<comando>'",
+      "description": "Crea un alias para comandos",
+      "category": "bash",
+      "tags": ["personalización", "productividad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-echo",
+      "command": "echo \"texto\"",
+      "description": "Muestra texto en la terminal",
+      "category": "bash",
+      "tags": ["básico", "texto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-wget",
+      "command": "wget <URL>",
+      "description": "Descarga archivos de internet",
+      "category": "bash",
+      "tags": ["descargas", "red"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-curl",
+      "command": "curl <URL>",
+      "description": "Transferencia de datos desde/para servidores",
+      "category": "bash",
+      "tags": ["red", "API"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "bash-df",
+      "command": "df -h",
+      "description": "Muestra el espacio en disco disponible",
+      "category": "bash",
+      "tags": ["sistema", "monitoreo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "bash-du",
+      "command": "du -sh <directorio>",
+      "description": "Muestra el tamaño de un directorio",
+      "category": "bash",
+      "tags": ["archivos", "espacio"],
+      "difficulty": "easy"
+    },
+  
+    
+    {
+      "id": "ps-get-childitem",
+      "command": "Get-ChildItem",
+      "description": "Lista archivos y directorios en la ubicación actual",
+      "category": "powershell",
+      "tags": ["archivos", "directorios"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ps-copy-item",
+      "command": "Copy-Item -Path <origen> -Destination <destino>",
+      "description": "Copia archivos o carpetas a una nueva ubicación",
+      "category": "powershell",
+      "tags": ["archivos", "copiar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-remove-item",
+      "command": "Remove-Item -Path <ruta>",
+      "description": "Elimina archivos o carpetas",
+      "category": "powershell",
+      "tags": ["archivos", "eliminar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-get-service",
+      "command": "Get-Service",
+      "description": "Lista todos los servicios del sistema",
+      "category": "powershell",
+      "tags": ["servicios", "sistema"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ps-start-service",
+      "command": "Start-Service -Name <nombre_servicio>",
+      "description": "Inicia un servicio específico",
+      "category": "powershell",
+      "tags": ["servicios", "administración"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-stop-service",
+      "command": "Stop-Service -Name <nombre_servicio>",
+      "description": "Detiene un servicio específico",
+      "category": "powershell",
+      "tags": ["servicios", "administración"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-test-connection",
+      "command": "Test-NetConnection -ComputerName <host>",
+      "description": "Prueba la conectividad con un host remoto",
+      "category": "powershell",
+      "tags": ["redes", "conectividad"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-get-content",
+      "command": "Get-Content -Path <archivo>",
+      "description": "Muestra el contenido de un archivo",
+      "category": "powershell",
+      "tags": ["archivos", "lectura"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ps-set-content",
+      "command": "Set-Content -Path <archivo> -Value <contenido>",
+      "description": "Escribe contenido en un archivo",
+      "category": "powershell",
+      "tags": ["archivos", "escritura"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-invoke-webrequest",
+      "command": "Invoke-WebRequest -Uri <URL>",
+      "description": "Realiza una solicitud HTTP a una URL",
+      "category": "powershell",
+      "tags": ["web", "http"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-get-eventlog",
+      "command": "Get-EventLog -LogName <nombre_log>",
+      "description": "Obtiene eventos del registro de eventos",
+      "category": "powershell",
+      "tags": ["logs", "sistema"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "ps-export-csv",
+      "command": "Export-Csv -Path <archivo.csv>",
+      "description": "Exporta datos a un archivo CSV",
+      "category": "powershell",
+      "tags": ["datos", "exportar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-import-csv",
+      "command": "Import-Csv -Path <archivo.csv>",
+      "description": "Importa datos desde un archivo CSV",
+      "category": "powershell",
+      "tags": ["datos", "importar"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "ps-get-help",
+      "command": "Get-Help <comando>",
+      "description": "Muestra ayuda sobre un comando específico",
+      "category": "powershell",
+      "tags": ["ayuda", "documentación"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "ps-get-history",
+      "command": "Get-History",
+      "description": "Muestra el historial de comandos ejecutados",
+      "category": "powershell",
+      "tags": ["historial", "comandos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-open-start",
+      "command": "Tecla Windows",
+      "description": "Abre o cierra el menú Inicio",
+      "category": "windows_shortcuts",
+      "tags": ["básico", "navegación"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-search",
+      "command": "Tecla Windows + S",
+      "description": "Abre la búsqueda de Windows",
+      "category": "windows_shortcuts",
+      "tags": ["búsqueda", "productividad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-run",
+      "command": "Tecla Windows + R",
+      "description": "Abre el diálogo Ejecutar",
+      "category": "windows_shortcuts",
+      "tags": ["comandos", "rápido"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-lock",
+      "command": "Tecla Windows + L",
+      "description": "Bloquea la sesión rápidamente",
+      "category": "windows_shortcuts",
+      "tags": ["seguridad", "privacidad"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-taskmgr",
+      "command": "Ctrl + Shift + Esc",
+      "description": "Abre directamente el Administrador de tareas",
+      "category": "windows_shortcuts",
+      "tags": ["sistema", "monitoreo"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-virtual-desktop",
+      "command": "Tecla Windows + Ctrl + D",
+      "description": "Crea un nuevo escritorio virtual",
+      "category": "windows_shortcuts",
+      "tags": ["organización", "multitarea"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "win-switch-desktop",
+      "command": "Tecla Windows + Ctrl + Flechas Izq/Der",
+      "description": "Navega entre escritorios virtuales",
+      "category": "windows_shortcuts",
+      "tags": ["productividad", "organización"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "win-snap-windows",
+      "command": "Tecla Windows + Flechas",
+      "description": "Ajusta ventanas a los lados/mitades de la pantalla",
+      "category": "windows_shortcuts",
+      "tags": ["multitarea", "organización"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-minimize-all",
+      "command": "Tecla Windows + M",
+      "description": "Minimiza todas las ventanas",
+      "category": "windows_shortcuts",
+      "tags": ["rápido", "organización"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-file-explorer",
+      "command": "Tecla Windows + E",
+      "description": "Abre el Explorador de archivos",
+      "category": "windows_shortcuts",
+      "tags": ["acceso rápido", "archivos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-settings",
+      "command": "Tecla Windows + I",
+      "description": "Abre la Configuración de Windows",
+      "category": "windows_shortcuts",
+      "tags": ["configuración", "sistema"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-project",
+      "command": "Tecla Windows + P",
+      "description": "Cambia modo de proyección/pantalla",
+      "category": "windows_shortcuts",
+      "tags": ["presentaciones", "pantallas"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "win-emoji",
+      "command": "Tecla Windows + . (punto)",
+      "description": "Abre el panel de emojis y símbolos",
+      "category": "windows_shortcuts",
+      "tags": ["productividad", "texto"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-capture",
+      "command": "Tecla Windows + Shift + S",
+      "description": "Abre la herramienta de captura de pantalla",
+      "category": "windows_shortcuts",
+      "tags": ["captura", "imágenes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-gamebar",
+      "command": "Tecla Windows + G",
+      "description": "Abre la Game Bar (también útil para grabación de pantalla)",
+      "category": "windows_shortcuts",
+      "tags": ["grabación", "juegos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-clipboard",
+      "command": "Tecla Windows + V",
+      "description": "Abre el historial del portapapeles",
+      "category": "windows_shortcuts",
+      "tags": ["productividad", "clipboard"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-quick-link",
+      "command": "Tecla Windows + X",
+      "description": "Abre el menú de enlace rápido (acceso a herramientas del sistema)",
+      "category": "windows_shortcuts",
+      "tags": ["administración", "acceso rápido"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "win-zoom",
+      "command": "Tecla Windows + + / Tecla Windows + -",
+      "description": "Zoom in/out con la lupa",
+      "category": "windows_shortcuts",
+      "tags": ["accesibilidad", "visual"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-cycle-windows",
+      "command": "Alt + Tab",
+      "description": "Cicla entre ventanas abiertas",
+      "category": "windows_shortcuts",
+      "tags": ["multitarea", "navegación"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-task-view",
+      "command": "Tecla Windows + Tab",
+      "description": "Abre la vista de tareas (Timeline)",
+      "category": "windows_shortcuts",
+      "tags": ["multitarea", "historial"],
+      "difficulty": "easy"
+    }
+  ]
+  
