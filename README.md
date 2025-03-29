@@ -1,8 +1,12 @@
 # 💻 Comandos Rápidos - Terminal Retro
 
-![Demo](https://command-app.netlify.app)
-
 Terminal interactiva con estilo arcade para acceder rápidamente a comandos de desarrollo esenciales.
+
+## 🌐 Demo en Producción
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c95d3cb4-9e16-41dc-9043-364fd775448f/deploy-status)](https://command-app.netlify.app)
+
+🔗 **Acceso directo**: [command-app.netlify.app](https://command-app.netlify.app)
 
 ## ✨ Características Principales
 
