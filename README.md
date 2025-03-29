@@ -1,4 +1,4 @@
-# 💻 Comandos Rápidos - Terminal Retro
+# 💻 Retro Command Console
 
 Terminal interactiva con estilo arcade para acceder rápidamente a comandos de desarrollo esenciales.
 
@@ -8,7 +8,7 @@ Terminal interactiva con estilo arcade para acceder rápidamente a comandos de d
 
 🔗 **Acceso directo**: [command-app.netlify.app](https://command-app.netlify.app)
 
-## ✨ Características Principales
+## ✨ Features
 
 - 🔍 **Búsqueda inteligente**: Filtra por comando, descripción, tags o categoría
 - 🏷️ **Etiquetado avanzado**: Clasificación por dificultad (Fácil | Medio | Difícil)
@@ -17,9 +17,9 @@ Terminal interactiva con estilo arcade para acceder rápidamente a comandos de d
 - 📋 **Copia rápida**: Integración con portapapeles + feedback visual
 - 🔊 **Efectos de sonido**: Opcionales (activables en código)
 
-## 🛠️ Tecnologías
+## 🛠️ Tech
 
-[![Tech Stack](https://skillicons.dev/icons?i=react,ts,vite,css,github,vercel&theme=dark)](https://skillicons.dev)
+[![Tech Stack](https://skillicons.dev/icons?i=react,ts,vite,css,vercel&theme=dark)](https://skillicons.dev)
 
 - **React 18** - Componentes funcionales con Hooks
 - **TypeScript** - Tipado estático
@@ -30,7 +30,7 @@ Terminal interactiva con estilo arcade para acceder rápidamente a comandos de d
 ## 🚀 Instalación Rápida
 
 
-# 1. Clonar repositorio
+# 1. Clone repository
 ```bash
 git clone https://github.com/tuusuario/command-app.git
 cd command-app
@@ -46,24 +46,22 @@ npm run dev
 yarn dev
 4. Abre en tu navegador.
 
-http://localhost:<puerto>
+http://localhost:5173  # ← Puerto específico de Vite
 
 
 🎛️ Estructura del proyecto
 
 src/
 ├── components/
-│ ├── CommandCard.tsx # Tarjeta individual de comando
-│ └── CommandGrid.tsx # Sistema de búsqueda principal
-├── context/
-│ └── CopyContext.tsx # Gestión de estado global (copiado)
+│ ├── CommandCard.tsx # Individual command component
+│ └── CommandGrid.tsx # Search & display system
 ├── data/
-│ └── commands.json # Base de datos de comandos
+│ └── commands.json # Command database (JSON)
 ├── styles/
-│ ├── CommandCard.module.css # Estilos de tarjetas
-│ └── CommandGrid.module.css # Estilos de la cuadrícula
+│ ├── CommandCard.module.css # Card styles
+│ └── CommandGrid.module.css # Main grid styles
 └── types/
-└── commands.ts # Tipos TypeScript compartidos
+└── commands.ts # Shared TypeScript types
 
 
 

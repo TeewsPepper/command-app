@@ -1,6 +1,6 @@
 
 .container {
-  font-family: 'Press Start 2P' monospace;
+  font-family: 'Press Start 2P', monospace;
   background-color: #000;
   color: #0f0;
   padding: 20px;
@@ -17,6 +17,7 @@
   font-size: 1.8rem;
   margin-bottom: 30px;
   animation: flicker 1.5s infinite alternate;
+  font-family: 'Press Start 2P', monospace;
 }
 
 @keyframes flicker {
@@ -92,4 +93,11 @@
   color: #f00;
   font-size: 1rem;
   text-shadow: 0 0 5px #ff0;
+}
+@media (max-width: 480px) {
+  .title {
+    font-size: 1rem;
+  }
+
+
 }
