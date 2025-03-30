@@ -1,224 +1,261 @@
-
-.card {
-  background: #000;
-  border: 2px solid #00ff00;
-  padding: 15px;
-  position: relative;
-  overflow: visible;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 255, 0.1) 0%,
-    rgba(255, 0, 255, 0.1) 100%
-  );
-  z-index: -1;
-}
-
-.commandText {
-  color: #ff0;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 1;
-}
-
-.copyButton {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: #000;
-  border: 2px solid #ff00ff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-left: 8px;
-  overflow: visible;
-}
-
-.copyButton:hover {
-  background: #ff00ff;
-  box-shadow: 0 0 10px #ff00ff;
-}
-
-.copyButton:active {
-  transform: translateY(2px);
-}
-
-.copyButton svg {
-  width: 16px;
-  height: 16px;
-  transition: all 0.3s;
-}
-
-.copyButton:hover svg {
-  stroke: #000;
-  transform: scale(1.1);
-}
-
-/* Efecto de "circuito" alrededor del botón */
-.copyButton::before {
-  content: "";
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border: 1px dashed #00ffff;
-  border-radius: 6px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.copyButton:hover::before {
-  opacity: 1;
-  animation: blink 0.5s infinite alternate;
-}
-
-@keyframes blink {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
-
-/* Efecto al copiar */
-.copyButton.copied {
-  background: #00ff00 !important;
-  border-color: #00ff00 !important;
-  animation: pulse 0.5s;
-}
-
-.copyButton.copied svg {
-  stroke: #000 !important;
-}
-
-.copyTooltip {
-  position: absolute;
-  top: 23%;
-  left: calc(100% + 40px);
-  transform: translateX(-50%);
-  background: #000;
-  color: #00ff00;
-  padding: 2px 8px;
-  border: 1px solid #00ff00;
-  font-size: 0.65rem;
-  font-family: 'Courier New', monospace;
-  border-radius: 3px;
-  white-space: nowrap;
-  z-index: 10;
-  animation: fadeIn 0.2s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(5px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-.description {
-  color: #0f0;
-  font-size: 0.8rem;
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 1;
-}
-
-.tagsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  position: relative;
-  z-index: 1;
-}
-
-.tag {
-  padding: 4px 8px;
-  font-size: 0.6rem;
-  background: #000;
-  border: 1px solid #ff00ff;
-  color: #0ff;
-}
-
-/* Efecto de escaneo CRT */
-.card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: rgba(0, 255, 255, 0.5);
-  animation: scan 8s linear infinite;
-}
-
-@keyframes scan {
-  0% { top: 0; }
-  100% { top: 100%; }
-}
-@media (max-width: 768px) {
-  .card {
-    font-style: normal !important;
-    font-family: 'Courier New', monospace !important;
+/* ATENCIÓN: Regla de accesibilidad para usuarios con preferencia de movimiento reducido.
+   Más info: https://web.dev/prefers-reduced-motion/ */
+   @media (prefers-reduced-motion: reduce) {
+    .card::after,
+    .copyButton::before,
+    .copyButton.copied,
+    .copyTooltip {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    .copyButton:active,
+    .copyButton:hover svg {
+      transform: none !important;
+    }
+    
+    .card::after {
+      opacity: 0 !important;
+    }
+  
+    /* Feedback visual alternativo */
+    .copyButton.copied {
+      background: #00ff00 !important;
+      border-color: #00ff00 !important;
+    }
+    
+    .copyTooltip {
+      opacity: 1 !important;
+    }
   }
-
-  .commandText,
-  .description,
-  .tag,
+  
+  /* Estilos base de la card */
+  .card {
+    background: #000;
+    border: 2px solid #00ff00;
+    padding: 15px;
+    position: relative;
+    overflow: visible;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 255, 255, 0.1) 0%,
+      rgba(255, 0, 255, 0.1) 100%
+    );
+    z-index: -1;
+  }
+  
+  .commandText {
+    color: #ff0;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .copyButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #000;
+    border: 2px solid #ff00ff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: 8px;
+    overflow: visible;
+  }
+  
+  .copyButton:hover {
+    background: #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+  }
+  
+  .copyButton:active {
+    transform: translateY(2px);
+  }
+  
+  .copyButton svg {
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s;
+  }
+  
+  .copyButton:hover svg {
+    stroke: #000;
+    transform: scale(1.1);
+  }
+  
+  /* Efecto de "circuito" alrededor del botón */
+  .copyButton::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px dashed #00ffff;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .copyButton:hover::before {
+    opacity: 1;
+    animation: blink 0.5s infinite alternate;
+  }
+  
+  @keyframes blink {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+  
+  /* Efecto al copiar */
+  .copyButton.copied {
+    background: #00ff00 !important;
+    border-color: #00ff00 !important;
+    animation: pulse 0.5s;
+  }
+  
+  .copyButton.copied svg {
+    stroke: #000 !important;
+  }
+  
   .copyTooltip {
-    font-style: normal !important;
-    font-family: inherit !important;
-    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    top: 23%;
+    left: calc(100% + 40px);
+    transform: translateX(-50%);
+    background: #000;
+    color: #00ff00;
+    padding: 2px 8px;
+    border: 1px solid #00ff00;
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+    border-radius: 3px;
+    white-space: nowrap;
+    z-index: 10;
+    animation: fadeIn 0.2s ease-out;
   }
-
-  /* Reset de transformaciones en móviles */
-  .commandText {
-    transform: none !important;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(5px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
   }
-
-  /* Ajustes específicos para el efecto CRT en móviles */
-  .card::after {
-    animation: scan 5s linear infinite;
-    opacity: 0.3; /* Más sutil en móviles */
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
   }
-}
-
-/* Para dispositivos muy pequeños */
-@media (max-width: 480px) {
-  .card {
-    padding: 10px;
-    border-width: 1px;
-  }
-
-  .commandText {
-    font-size: 0.75rem !important;
-  }
-
+  
   .description {
-    font-size: 0.65rem !important;
+    color: #0f0;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
   }
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+  
+  .tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .tag {
+    padding: 4px 8px;
+    font-size: 0.6rem;
+    background: #000;
+    border: 1px solid #ff00ff;
+    color: #0ff;
+  }
+  
+  /* Efecto de escaneo CRT */
+  .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(0, 255, 255, 0.5);
+    animation: scan 8s linear infinite;
+  }
+  
+  @keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      font-style: normal !important;
+      font-family: 'Courier New', monospace !important;
+    }
+  
+    .commandText,
+    .description,
+    .tag,
+    .copyTooltip {
+      font-style: normal !important;
+      font-family: inherit !important;
+      -webkit-font-smoothing: antialiased;
+    }
+  
+    .commandText {
+      transform: none !important;
+    }
+  
+    /* Ajuste específico para reduced-motion en móviles */
+    @media (prefers-reduced-motion: reduce) {
+      .card::after {
+        display: none;
+      }
+    }
+  
+    .card::after {
+      animation: scan 5s linear infinite;
+      opacity: 0.3;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card {
+      padding: 10px;
+      border-width: 1px;
+    }
+  
+    .commandText {
+      font-size: 0.75rem !important;
+    }
+  
+    .description {
+      font-size: 0.65rem !important;
+    }
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }

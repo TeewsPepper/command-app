@@ -27,6 +27,20 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .title, 
+  .tabButton,
+  .commandsGrid > * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .commandsGrid {
+    opacity: 1 !important;
+  }
+}
+
+
 .searchContainer {
   margin-bottom: 20px;
   position: relative;
