@@ -316,15 +316,15 @@
   }
   
   .commandText {
-    font-size: 0.75rem !important;
+    font-size: 0.85rem !important;
   }
   
   .description {
-    font-size: 0.65rem !important;
+    font-size: 0.80rem !important;
   }
   
   .copyTooltip {
-    left: 150%;
+    left: 300%;
     top: 10%;
     transform: translateX(-50%) scale(0.95);
     transition: opacity 0.15s ease-out;

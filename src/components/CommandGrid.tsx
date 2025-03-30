@@ -37,7 +37,7 @@ export default function CommandGrid() {
     };
   }, []);
 
-  // Filtrado optimizado con memoización
+  // Filtrado optimizado con memorización
   const filteredCommands = useMemo(() => {
     const searchLower = searchTerm.toLowerCase();
     const filtered = commands.filter(cmd => {
