@@ -1,46 +1,84 @@
-.container {
-  font-family: 'Press Start 2P', monospace;
-  background-color: #000;
-  color: #0f0;
-  padding: 20px;
-  border: 4px solid #ff00ff;
-  box-shadow: 0 0 10px #00ffff;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Estilos base con modo oscuro forzado */
+:root {
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-yellow: #ffff00;
+  --neon-green: #00ff00;
+  --neon-red: #ff0000;
+  --bg-black: #000000;
+  --text-primary: #00ff00;
+  --text-secondary: #00ffff;
 }
 
+/* Reset accesible */
+.container *:focus {
+  outline: 3px solid var(--neon-yellow);
+  outline-offset: 2px;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .container *:focus {
+    outline: 3px solid windowText !important;
+  }
+}
+
+/* Contenedor principal */
+.container {
+  font-family: 'Press Start 2P', monospace;
+  background-color: var(--bg-black);
+  color: var(--text-primary);
+  padding: 20px;
+  border: 4px solid var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-cyan);
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+/* En CommandGrid.module.css */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estilo adicional para asegurar que no sea visible */
+.sr-only:not(:focus):not(:active) {
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+}
+
+/* Título con animación controlada */
 .title {
-  color: #ff0;
-  text-shadow: 0 0 5px #f0f, 0 0 10px #0ff;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-cyan);
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 30px;
   animation: flicker 1.5s infinite alternate;
+  line-height: 1.4;
 }
 
 @keyframes flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: 0 0 5px #f0f, 0 0 10px #0ff;
+    text-shadow: 
+      0 0 5px var(--neon-pink),
+      0 0 10px var(--neon-cyan),
+      0 0 20px var(--neon-cyan);
   }
   20%, 24%, 55% {
     text-shadow: none;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .title, 
-  .tabButton,
-  .commandsGrid > * {
-    animation: none !important;
-    transition: none !important;
-  }
-  
-  .commandsGrid {
-    opacity: 1 !important;
-  }
-}
-
-
+/* Búsqueda accesible */
 .searchContainer {
   margin-bottom: 20px;
   position: relative;
@@ -48,23 +86,39 @@
 
 .searchInput {
   width: 90%;
-  padding: 10px;
-  background: black;
-  color: #0f0;
-  border: 2px solid #00ffff;
-  font-family: 'Press Start 2P', monospace;
+  padding: 12px 15px;
+  background: var(--bg-black);
+  color: var(--text-primary);
+  border: 2px solid var(--neon-cyan);
+  font-family: inherit;
   font-size: 0.8rem;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .searchInput:focus {
   outline: none;
-  box-shadow: 0 0 10px #ff00ff;
+  box-shadow: 
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink);
 }
 
+.searchInput::placeholder {
+  color: var(--neon-cyan);
+  opacity: 0.7;
+}
+
+/* Pestañas accesibles */
 .tabsContainer {
   margin-bottom: 20px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabsContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .tabsScroll {
@@ -74,42 +128,118 @@
 }
 
 .tabButton {
-  padding: 8px 16px;
-  background: #000;
-  color: #0f0;
-  border: 2px solid #ff00ff;
-  font-family: 'Press Start 2P', monospace;
+  padding: 10px 18px;
+  background: var(--bg-black);
+  color: var(--text-primary);
+  border: 2px solid var(--neon-pink);
+  font-family: inherit;
   font-size: 0.7rem;
   cursor: pointer;
   transition: all 0.2s;
   flex-shrink: 0;
+  position: relative;
 }
 
 .tabButton:hover {
-  background: #ff00ff;
-  color: #000;
+  background: var(--neon-pink);
+  color: var(--bg-black);
+}
+
+.tabButton:focus {
+  background: var(--neon-pink);
+  color: var(--bg-black);
 }
 
 .activeTab {
-  background: #00ffff;
-  color: #000;
-  box-shadow: 0 0 10px #00ffff;
+  background: var(--neon-cyan);
+  color: var(--bg-black);
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--neon-cyan);
 }
 
+/* Grid de comandos */
 .commandsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
   width: 100%;
 }
 
+/* Resultados no encontrados */
 .noResults {
   text-align: center;
-  color: #f00;
+  color: var(--neon-red);
   font-size: 1rem;
-  text-shadow: 0 0 5px #ff0;
+  text-shadow: 0 0 5px var(--neon-yellow);
+  padding: 30px;
+  grid-column: 1 / -1;
 }
 
+/* Modo de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .title, 
+  .tabButton,
+  .commandsGrid > * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .title {
+    text-shadow: 
+      0 0 5px var(--neon-pink),
+      0 0 10px var(--neon-cyan) !important;
+  }
+  
+  .commandsGrid {
+    opacity: 1 !important;
+  }
+}
+
+/* Estilos para screen readers */
+.screenReaderAnnouncement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.screenReaderHint {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* High Contrast Mode */
+@media screen and (-ms-high-contrast: active) {
+  .container {
+    border: 3px solid windowText !important;
+  }
+  
+  .activeTab {
+    forced-color-adjust: none;
+    background: highlight !important;
+    color: highlightText !important;
+    border-color: windowText !important;
+  }
+  
+  .tabButton {
+    border: 2px solid windowText !important;
+  }
+  
+  .searchInput:focus {
+    outline: 3px solid windowText !important;
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     padding: 15px;
@@ -123,39 +253,26 @@
   
   .searchInput {
     width: 93%;
+    padding: 10px 12px;
+    font-size: 0.7rem;
+  }
+  
+  .commandsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
   .title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   
   .tabButton {
-    padding: 6px 12px;
+    padding: 8px 12px;
     font-size: 0.6rem;
   }
-}
-
-/* Estilo corregido para screen readers */
-.screenReaderOnly {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
-/* Ocultar completamente elementos ARIA live */
-[aria-live] {
-  position: fixed !important;
-  left: -10000px !important;
-  top: auto !important;
-  width: 1px !important;
-  height: 1px !important;
-  overflow: hidden !important;
+  
+  .commandsGrid {
+    grid-template-columns: 1fr;
+  }
 }

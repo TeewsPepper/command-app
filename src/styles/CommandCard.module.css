@@ -1,261 +1,347 @@
-/* ATENCIÓN: Regla de accesibilidad para usuarios con preferencia de movimiento reducido.
-   Más info: https://web.dev/prefers-reduced-motion/ */
-   @media (prefers-reduced-motion: reduce) {
-    .card::after,
-    .copyButton::before,
-    .copyButton.copied,
-    .copyTooltip {
-      animation: none !important;
-      transition: none !important;
-    }
-    
-    .copyButton:active,
-    .copyButton:hover svg {
-      transform: none !important;
-    }
-    
-    .card::after {
-      opacity: 0 !important;
-    }
-  
-    /* Feedback visual alternativo */
-    .copyButton.copied {
-      background: #00ff00 !important;
-      border-color: #00ff00 !important;
-    }
-    
-    .copyTooltip {
-      opacity: 1 !important;
-    }
+/* ===== VARIABLES Y RESET ===== */
+:root {
+  --neon-green: #00ff00;
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-yellow: #ff0;
+  --neon-red: #ff0000;
+  --bg-black: #000;
+  --text-primary: #00ff00;
+  --text-secondary: #00ffff;
+  --crt-scan-color: rgba(0, 255, 255, 0.5);
+  --glow-opacity: 0.3;
+}
+
+/* ===== ESTILOS BASE ===== */
+.card {
+  background: var(--bg-black);
+  border: 2px solid var(--neon-green);
+  padding: 15px;
+  position: relative;
+  overflow: visible;
+  font-family: 'Courier New', monospace;
+  transition: border-color 0.3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.1) 0%,
+    rgba(255, 0, 255, 0.1) 100%
+  );
+  z-index: -1;
+}
+
+/* ===== EFECTO CRT ===== */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--crt-scan-color);
+  animation: scan 15s linear infinite;
+  opacity: var(--glow-opacity);
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* ===== CONTENIDO DE LA CARD ===== */
+.commandText,
+.commandText[aria-hidden="true"] {
+  color: var(--neon-yellow);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 3px var(--neon-pink);
+}
+
+.description {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 4px;
+  border-radius: 2px;
+}
+
+/* ===== BOTÓN DE COPIAR ===== */
+.copyButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--bg-black);
+  border: 2px solid var(--neon-pink);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+  overflow: visible;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.copyButton:hover {
+  background: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.copyButton:active {
+  transform: translateY(2px);
+}
+
+.copyButton svg {
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s ease;
+}
+
+.copyButton:hover svg {
+  stroke: var(--bg-black);
+  transform: scale(1.1);
+}
+
+/* Efecto de circuito alrededor del botón */
+.copyButton::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px dashed var(--neon-cyan);
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copyButton:hover::before {
+  opacity: 1;
+  animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* ===== ESTILOS AL COPIAR ===== */
+.copyButton.copied {
+  background: var(--neon-green) !important;
+  border-color: var(--neon-green) !important;
+  animation: pulse 0.5s;
+}
+
+.copyButton.copied svg {
+  stroke: var(--bg-black) !important;
+}
+
+/* ===== TOOLTIP OPTIMIZADO ===== */
+.copyTooltip {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 20px);
+  transform: translateY(-50%) scale(0.95);
+  background: var(--bg-black);
+  color: var(--neon-green);
+  padding: 4px 12px;
+  border: 1px solid var(--neon-green);
+  font-size: 0.7rem;
+  font-family: 'Courier New', monospace;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.copyButton.copied .copyTooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ===== TAGS ===== */
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  padding: 4px 8px;
+  font-size: 0.6rem;
+  background: var(--bg-black);
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-cyan);
+  border-radius: 3px;
+}
+
+/* ===== ACCESIBILIDAD ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== PREFERS-REDUCED-MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
   
-  /* Estilos base de la card */
-  .card {
-    background: #000;
-    border: 2px solid #00ff00;
-    padding: 15px;
-    position: relative;
-    overflow: visible;
+  .card::after,
+  .copyButton::before,
+  .copyButton.copied,
+  .copyTooltip {
+    animation: none !important;
+    transition: none !important;
   }
   
-  .card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(0, 255, 255, 0.1) 0%,
-      rgba(255, 0, 255, 0.1) 100%
-    );
-    z-index: -1;
-  }
-  
-  .commandText {
-    color: #ff0;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .copyButton {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: #000;
-    border: 2px solid #ff00ff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-left: 8px;
-    overflow: visible;
-  }
-  
-  .copyButton:hover {
-    background: #ff00ff;
-    box-shadow: 0 0 10px #ff00ff;
-  }
-  
-  .copyButton:active {
-    transform: translateY(2px);
-  }
-  
-  .copyButton svg {
-    width: 16px;
-    height: 16px;
-    transition: all 0.3s;
-  }
-  
+  .copyButton:active,
   .copyButton:hover svg {
-    stroke: #000;
-    transform: scale(1.1);
+    transform: none !important;
   }
   
-  /* Efecto de "circuito" alrededor del botón */
-  .copyButton::before {
-    content: "";
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 1px dashed #00ffff;
-    border-radius: 6px;
-    opacity: 0;
-    transition: opacity 0.3s;
+  .card::after {
+    opacity: 0.1 !important;
+    animation: none !important;
+    height: 100% !important;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 255, 255, 0.1) 20%,
+      transparent 80%
+    ) !important;
   }
   
-  .copyButton:hover::before {
-    opacity: 1;
-    animation: blink 0.5s infinite alternate;
-  }
-  
-  @keyframes blink {
-    0% { opacity: 0.3; }
-    100% { opacity: 1; }
-  }
-  
-  /* Efecto al copiar */
   .copyButton.copied {
-    background: #00ff00 !important;
-    border-color: #00ff00 !important;
-    animation: pulse 0.5s;
-  }
-  
-  .copyButton.copied svg {
-    stroke: #000 !important;
+    outline: 3px solid var(--neon-green);
+    box-shadow: 0 0 0 3px var(--neon-green);
+    background: var(--bg-black) !important;
   }
   
   .copyTooltip {
-    position: absolute;
-    top: 23%;
-    left: calc(100% + 40px);
-    transform: translateX(-50%);
-    background: #000;
-    color: #00ff00;
-    padding: 2px 8px;
-    border: 1px solid #00ff00;
-    font-size: 0.65rem;
-    font-family: 'Courier New', monospace;
-    border-radius: 3px;
-    white-space: nowrap;
-    z-index: 10;
-    animation: fadeIn 0.2s ease-out;
+    opacity: 1 !important;
+    transform: translateY(-50%) scale(1) !important;
+  }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (forced-colors: active) {
+  .card {
+    border: 2px solid CanvasText !important;
+    forced-color-adjust: none;
   }
   
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(5px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .copyButton {
+    border-color: ButtonText !important;
+    background: ButtonFace !important;
   }
   
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-  
-  .description {
-    color: #0f0;
-    font-size: 0.8rem;
-    margin-bottom: 15px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .tagsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    position: relative;
-    z-index: 1;
+  .copyButton.copied {
+    background: Highlight !important;
+    border-color: ButtonText !important;
+    color: HighlightText !important;
   }
   
   .tag {
-    padding: 4px 8px;
-    font-size: 0.6rem;
-    background: #000;
-    border: 1px solid #ff00ff;
-    color: #0ff;
+    border-color: CanvasText !important;
   }
   
-  /* Efecto de escaneo CRT */
+  .commandText {
+    color: CanvasText !important;
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .card {
+    padding: 12px;
+    border-width: 2px;
+  }
+  
+  .commandText {
+    font-size: 0.8rem !important;
+  }
+  
+  .description {
+    font-size: 0.75rem !important;
+  }
+  
   .card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: rgba(0, 255, 255, 0.5);
-    animation: scan 8s linear infinite;
+    animation: none;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 10px;
+    border-width: 1px;
   }
   
-  @keyframes scan {
-    0% { top: 0; }
-    100% { top: 100%; }
+  .commandText {
+    font-size: 0.75rem !important;
   }
   
-  @media (max-width: 768px) {
-    .card {
-      font-style: normal !important;
-      font-family: 'Courier New', monospace !important;
-    }
-  
-    .commandText,
-    .description,
-    .tag,
-    .copyTooltip {
-      font-style: normal !important;
-      font-family: inherit !important;
-      -webkit-font-smoothing: antialiased;
-    }
-  
-    .commandText {
-      transform: none !important;
-    }
-  
-    /* Ajuste específico para reduced-motion en móviles */
-    @media (prefers-reduced-motion: reduce) {
-      .card::after {
-        display: none;
-      }
-    }
-  
-    .card::after {
-      animation: scan 5s linear infinite;
-      opacity: 0.3;
-    }
+  .description {
+    font-size: 0.65rem !important;
   }
   
-  @media (max-width: 480px) {
-    .card {
-      padding: 10px;
-      border-width: 1px;
-    }
-  
-    .commandText {
-      font-size: 0.75rem !important;
-    }
-  
-    .description {
-      font-size: 0.65rem !important;
-    }
+  .copyTooltip {
+    left: 150%;
+    top: 10%;
+    transform: translateX(-50%) scale(0.95);
+    transition: opacity 0.15s ease-out;
   }
   
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  .copyButton.copied .copyTooltip {
+    transform: translateX(-50%) scale(1);
   }
+}
+
+/* ===== FOCUS STATES ===== */
+.copyButton:focus-visible {
+  outline: 3px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+.commandText:focus-visible {
+  outline: 2px dashed var(--neon-yellow);
+  outline-offset: 2px;
+}
