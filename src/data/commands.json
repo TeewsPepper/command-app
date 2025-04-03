@@ -985,6 +985,86 @@
       "category": "windows_shortcuts",
       "tags": ["multitarea", "historial"],
       "difficulty": "easy"
+    },
+    {
+      "id": "win-focus-next-element",
+      "command": "Tab",
+      "description": "Mover el foco al siguiente elemento interactivo (campo, botón, enlace)",
+      "category": "navegación-ui",
+      "tags": ["formularios", "accesibilidad", "focus"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-focus-previous-element",
+      "command": "Shift + Tab",
+      "description": "Mover el foco al elemento interactivo anterior",
+      "category": "navegación-ui",
+      "tags": ["formularios", "accesibilidad", "focus"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-activate-button",
+      "command": "Enter o Space",
+      "description": "Activar el botón o elemento seleccionado",
+      "category": "navegación-ui",
+      "tags": ["botones", "interacción"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-toggle-checkbox",
+      "command": "Space",
+      "description": "Marcar/desmarcar una casilla de verificación (checkbox)",
+      "category": "navegación-ui",
+      "tags": ["formularios", "checkboxes"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-scroll-up-down",
+      "command": "↑ / ↓",
+      "description": "Desplazarse verticalmente en listas o menús",
+      "category": "navegación-ui",
+      "tags": ["listas", "menús", "scroll"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-scroll-left-right",
+      "command": "← / →",
+      "description": "Desplazarse horizontalmente (ej. en pestañas o sliders)",
+      "category": "navegación-ui",
+      "tags": ["pestañas", "sliders", "scroll"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-close-dialog",
+      "command": "Esc",
+      "description": "Cerrar cuadros de diálogo o menús emergentes",
+      "category": "navegación-ui",
+      "tags": ["ventanas", "cancelar", "diálogos"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-context-menu",
+      "command": "Shift + F10 o Menu Key",
+      "description": "Abrir el menú contextual del elemento seleccionado",
+      "category": "navegación-ui",
+      "tags": ["menú contextual", "clic derecho"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "win-toggle-radiobutton",
+      "command": "↑ / ↓ o Space",
+      "description": "Seleccionar un botón de opción (radio button)",
+      "category": "navegación-ui",
+      "tags": ["formularios", "radio buttons"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "win-navigate-tabs",
+      "command": "Ctrl + Tab / Ctrl + Shift + Tab",
+      "description": "Moverse entre pestañas en aplicaciones con interfaz de pestañas",
+      "category": "navegación-ui",
+      "tags": ["pestañas", "multitarea"],
+      "difficulty": "medium"
     }
   ]
   

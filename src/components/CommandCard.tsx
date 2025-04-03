@@ -1,10 +1,10 @@
 
 import { motion } from "framer-motion";
-import { Command } from "../types/commands";
+import { CommandCardProps } from "../types/commands";
 import styles from "../styles/CommandCard.module.css";
 import { useState, useEffect } from "react";
 
-interface CommandCardProps {
+/* interface CommandCardProps {
   command: Command;
   onCopy: (text: string) => void;
   copiedCommandId: string | null;
@@ -12,7 +12,7 @@ interface CommandCardProps {
   className?: string;
   role?: string;
   'aria-labelledby'?: string;
-}
+} */
 
 export default function CommandCard({
   command,
@@ -52,12 +52,12 @@ export default function CommandCard({
       }
     }
 
-    /* const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       setAnnounceCopy(false);
       if (isCopied) setCopiedCommandId(null);
     }, 1500);
 
-    return () => clearTimeout(timer); */
+    return () => clearTimeout(timer);
   };
 
   const difficultyClass = styles[command.difficulty];

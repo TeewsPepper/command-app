@@ -2,6 +2,9 @@
 
 Terminal interactiva con estilo arcade para acceder rápidamente a comandos de desarrollo esenciales.
 
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+![Open Source](https://badgen.net/badge/Open%20Source/%E2%9C%94/blue)
+
 ## 🌐 Demo en Producción
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c95d3cb4-9e16-41dc-9043-364fd775448f/deploy-status)](https://command-app.netlify.app)
@@ -77,3 +80,27 @@ Edita el archivo src/data/commands.json:
   "tags": ["tag1", "tag2"],
   "difficulty": "easy" // Opciones: easy, medium, hard
 }
+
+🤝 Contribuciones Bienvenidas
+
+¡Este proyecto es open source y cualquier mejora es bienvenida! 🎉
+
+Si quieres colaborar con nuevos comandos y funcionalidades, mejorar la UI o corregir errores:
+
+  1. Haz un fork del repositorio.
+
+  2. Crea una rama para tu mejora:
+      git checkout -b feature/nueva-mejora
+
+
+
+  3. Realiza tus cambios y haz un commit:
+      git commit -m "Agregado nuevo comando de Git" 
+
+
+
+  4. Haz un push a tu rama y abre un Pull Request:
+      git push origin feature/nueva-mejora
+
+  Si encuentras un bug o tienes ideas, ¡abre un issue! 🚀
+
