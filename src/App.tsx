@@ -1,13 +1,10 @@
-
 import CommandGrid from "./components/CommandGrid";
 
 const App = () => {
   return (
-    
-      <>
-        <CommandGrid />
-      </>
-    
+    <>
+      <CommandGrid />
+    </>
   );
 };
 
