@@ -33,8 +33,12 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  min-height: 100vh;
+  transition: all 0.5s ease;
+  z-index: 1;
 }
-/* En CommandGrid.module.css */
+
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -64,6 +68,7 @@
   margin-bottom: 30px;
   animation: flicker 1.5s infinite alternate;
   line-height: 1.4;
+  transition: all 0.3s ease;
 }
 
 @keyframes flicker {
@@ -95,6 +100,7 @@
   border-radius: 0;
   appearance: none;
   -webkit-appearance: none;
+  transition: all 0.3s ease;
 }
 
 .searchInput:focus {
@@ -193,6 +199,20 @@
   .commandsGrid {
     opacity: 1 !important;
   }
+
+  /* Easter Egg en modo reducido */
+  .easterEggActive {
+    animation: none !important;
+    background: var(--neon-pink) !important;
+  }
+  
+  .easterEggOverlay, .easterEggMessage {
+    animation: none !important;
+  }
+  
+  .easterEggOverlay {
+    background: var(--neon-pink) !important;
+  }
 }
 
 /* Estilos para screen readers */
@@ -237,6 +257,81 @@
   .searchInput:focus {
     outline: 3px solid windowText !important;
   }
+
+  /* Easter Egg en alto contraste */
+  .easterEggActive {
+    background: windowBackground !important;
+    animation: none !important;
+  }
+  
+  .easterEggMessage {
+    color: windowText !important;
+    background: windowBackground !important;
+    border: 3px solid windowText !important;
+  }
+}
+
+
+.easterEggActive {
+  background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-cyan) 100%);
+  animation: colorPulse 1s infinite alternate, shake 0.5s ease-in-out infinite;
+  border-color: var(--neon-yellow) !important;
+}
+
+.easterEggMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-cyan);
+  z-index: 10000;
+  animation: float 3s ease-in-out infinite, textGlow 1.5s alternate infinite;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 3px solid var(--neon-yellow);
+  box-shadow: 0 0 30px var(--neon-pink);
+  pointer-events: none;
+}
+
+@keyframes colorPulse {
+  0% { background-color: var(--neon-red); }
+  25% { background-color: var(--neon-yellow); }
+  50% { background-color: var(--neon-green); }
+  75% { background-color: var(--neon-cyan); }
+  100% { background-color: var(--neon-pink); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-cyan); }
+  to { text-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-cyan), 0 0 45px var(--neon-yellow); }
+}
+
+.easterEggActive .commandCard {
+  transform: rotate(5deg) scale(1.05);
+  transition: transform 0.5s ease;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  animation: cardPulse 2s ease-in-out infinite;
+}
+
+@keyframes cardPulse {
+  0%, 100% { transform: rotate(5deg) scale(1.05); }
+  50% { transform: rotate(-5deg) scale(1.1); }
 }
 
 /* Responsive Design */
@@ -260,6 +355,13 @@
   .commandsGrid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
+
+  /* Easter Egg en móviles */
+  .easterEggMessage {
+    font-size: 1.8rem;
+    width: 90%;
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -274,5 +376,11 @@
   
   .commandsGrid {
     grid-template-columns: 1fr;
+  }
+
+  /* Easter Egg en móviles pequeños */
+  .easterEggMessage {
+    font-size: 1.5rem;
+    padding: 1rem;
   }
 }
